@@ -23,6 +23,7 @@ class_names = {
 def preprocess_image(image_path):
     img = cv2.imread(image_path)
     img = cv2.resize(img, (224, 224))  # Resize the image to match the model's input shape
+    img = img / 255
     img = np.expand_dims(img, axis=0)  # Add batch dimension
     return img
 
